@@ -4,10 +4,11 @@ import './Movie.css'
 // component > render > return > jsx(react로 작성하는 html)
 class Movie extends Component {
     render() {
+        // console.log(this.props); // movie가 가진 props(부모가 자식에게 준 데이터)
         return (
             <div>
-                <MoviePoster />
-                <h1>hello this is a movie</h1>
+                <h1>{this.props.title}</h1>
+                <MoviePoster poster={this.props.poster} />
             </div>
         )
     }
@@ -15,8 +16,9 @@ class Movie extends Component {
 
 class MoviePoster extends Component {
     render() {
+        // console.log(this.props);
         return (
-            <img src="https://i.ytimg.com/vi/TYWXiCer30s/maxresdefault.jpg" width="200" height="100"/>
+            <img src={this.props.poster} width="200"/>
         )
     }
 }
