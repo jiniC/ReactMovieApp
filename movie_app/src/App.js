@@ -27,8 +27,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {movies.map(movie => {
-          return <Movie title={movie.title} poster={movie.poster} />;
+        {movies.map((movie, index) => {
+          // error: Each child in an array or iterator should have a unique "key" prop.
+          return <Movie title={movie.title} poster={movie.poster} key={index}/>;
         })}
       </div>
     );
