@@ -1,22 +1,6 @@
 import React from "react";
-// import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Movie.css'
-
-// class Movie extends Component {
-//   static propTypes = {
-//     title: PropTypes.string.isRequired,
-//     poster: PropTypes.string.isRequired
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <h1>{this.props.title}</h1>
-//         <MoviePoster poster={this.props.poster} />
-//       </div>
-//     );
-//   }
-// }
 
 // stateless component(functional component): return하기만 하면 됨 (state없음, 라이프사이클 없음)
 function Movie({title, poster}){
@@ -27,17 +11,6 @@ function Movie({title, poster}){
       </div>
   )
 }
-
-// class MoviePoster extends Component {
-//     static propTypes = {
-//         poster: PropTypes.string.isRequired
-//     }
-//     render() {
-//         return (
-//             <img src={this.props.poster} width="200"/>
-//         )
-//     }
-// }
 
 function MoviePoster({poster}) {
   return (

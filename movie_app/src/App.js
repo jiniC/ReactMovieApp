@@ -9,33 +9,17 @@ class App extends Component {
   // Update: componentWillReceiveProps() -> ShouldComponentUpdate() -> true -> componentWillUpdate() -> render() -> componentDidUpdate()
 
   // state바뀌면 새로운 state와 함께 바뀔 때마다 render()발생
-  state = {
-    greeting: "Hello!",
-  };
+  state = {}
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        movies: [
-          {
-            title: "HarryPotter",
-            poster: "https://static.rogerebert.com/uploads/movie/movie_poster/harry-potter-and-the-sorcerers-stone-2001/large_uLGaJ9FgPWf7EUgwjp9RTmHemw8.jpg"
-          },
-          {
-            title: "Guardians of the Galaxy",
-            poster: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_UY1200_CR90,0,630,1200_AL_.jpg"
-          },
-          {
-            title: "Zootopia",
-            poster: "https://images-na.ssl-images-amazon.com/images/I/71-Fj-WsM7L._SY550_.jpg"
-          },
-          {
-            title: "LalaLand",
-            poster: "https://media-cache.cinematerial.com/p/500x/4oa8qefc/la-la-land-slovak-movie-poster.jpg"
-          },
-        ]
-      });
-    }, 2000);
+    // promise: asynchronous, 비동기식, 첫 라인이 안끝나도 두번째 라인 작업, 계속 다른 작업 스케줄 해 둘 수 있음
+    // AJAX(=Asynchronous JavaScript And XML)
+    // fetch의 작업이 완료되면 -> then -> catch
+    fetch("https://yts.am/api/v2/list_movies.json?sort_by=rating")
+      // response: fetch의 결과물
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch(err => console.log(err));
   }
 
   // react와 내 기능 차이두기위해서 '_'사용
